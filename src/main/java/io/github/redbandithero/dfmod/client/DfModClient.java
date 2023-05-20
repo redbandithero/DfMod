@@ -1,6 +1,7 @@
 package io.github.redbandithero.dfmod.client;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.tinyremapper.extension.mixin.common.Logger;
 
 public class DfModClient implements ClientModInitializer {
     /**
@@ -8,6 +9,5 @@ public class DfModClient implements ClientModInitializer {
      */
     @Override
     public void onInitializeClient() {
-
     }
 }

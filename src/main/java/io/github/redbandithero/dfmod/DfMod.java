@@ -1,7 +1,8 @@
 package io.github.redbandithero.dfmod;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.tinyremapper.extension.mixin.common.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class DfMod implements ModInitializer {
     /**
@@ -9,6 +10,9 @@ public class DfMod implements ModInitializer {
      */
     @Override
     public void onInitialize() {
-
+        //get the client logger
+        Logger logger = LogManager.getLogger("DfMod");
+        //log a message
+        logger.info("Hello Fabric world!");
     }
 }
