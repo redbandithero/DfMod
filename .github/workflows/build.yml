@@ -34,4 +34,4 @@ jobs:
                   automatic_release_tag: "v${{ github.run_number }}-alpha"
                   files: |
                       LICENSE
-                      ./build/libs/dfmod-${{ github.run_number }}.jar
+                      ./build/libs/DfMod-${{ github.run_number }}.jar
