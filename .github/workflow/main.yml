@@ -1,28 +1,37 @@
-name: Fabric CI
+name: Build
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+    push:
+        branches:
+            - main
+permissions:
+    id-token: "write"
+    contents: "write"
+    packages: "write"
+    pull-requests: "read"
 jobs:
-  runTests:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: "Checkout Project"
-      uses: actions/checkout@v2
-      with:
-        lfs: true
-
-    - name: "Run Fabric Tests"
-      uses: Geometrically/fabric-test-runner@v1
-      with:
-        minecraftVersion: 1.19.4
-    
-    - name: "Upload Artifact"
-      uses: actions/upload-artifact@v1
-      with:
-        name: Builds
-        path: build/libs
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Set up JDK 17
+              uses: actions/setup-java@v3
+              with:
+                  java-version: 17
+                  distribution: "temurin"
+            - name: Build with Gradle
+              run: ./gradlew build '-Pversion=${{ github.run_number }}'
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: dfmod
+                  path: ./build/libs/dfmod*.jar
+            - name: Publish Release
+              uses: marvinpinto/action-automatic-releases@latest
+              with:
+                  repo_token: "${{ secrets.GITHUB_TOKEN }}"
+                  prerelease: true <- Marks as prerelease for release
+                  automatic_release_tag: "v${{ github.run_number }}-alpha" <- Tag name, only if you want
+                  files: |
+                      LICENSE
+                      ./build/libs/dfmod-${{ github.run_number }}.jar
