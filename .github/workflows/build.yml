@@ -25,7 +25,7 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                   name: dfmod
-                  path: ./build/libs/dfmod*.jar
+                  path: ./build/libs/DfMod*.jar
             - name: Publish Release
               uses: marvinpinto/action-automatic-releases@latest
               with:
