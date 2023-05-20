@@ -13,6 +13,6 @@ public class DfMod implements ModInitializer {
         //get the client logger
         Logger logger = LogManager.getLogger("DfMod");
         //log a message
-        logger.info("Hello Fabric world!");
+        logger.info("I have made a silly change!");
     }
 }
