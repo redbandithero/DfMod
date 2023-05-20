@@ -13,7 +13,7 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "io.github.redbandithero.dfmod.client.DfModClient"
+      "io.github.redbandithero.dfmod.client.DFModClient"
     ],
     "main": [
       "io.github.redbandithero.dfmod.DfMod"
