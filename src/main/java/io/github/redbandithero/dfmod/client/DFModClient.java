@@ -11,5 +11,6 @@ public class DFModClient implements ClientModInitializer {
     public void onInitializeClient() {
         MinecraftClient client = MinecraftClient.getInstance();
         client.options.hudHidden = true;
+        client.options.smoothCameraEnabled = true;
     }
 }
