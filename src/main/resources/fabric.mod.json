@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "DfMod",
+  "version": "${version}",
+  "name": "DfMod",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/redbandithero/DfMod"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/DfMod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "io.github.redbandithero.dfmod.client.DfModClient"
+    ],
+    "main": [
+      "io.github.redbandithero.dfmod.DfMod"
+    ]
+  },
+  "mixins": [
+    "DfMod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
